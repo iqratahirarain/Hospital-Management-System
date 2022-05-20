@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Register A Nurse</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" type="text/css">
+    <link href="/vendor/boxicons/css/boxicons.css" rel="stylesheet" type="text/css">
+    <link href="/vendor/remixicon/remixicon.css" rel="stylesheet" type="text/css">
+
+    <!-- Template Main CSS File -->
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+
+<body>
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="header fixed-top d-flex align-items-center">
+
+        <div class="d-flex align-items-center justify-content-between">
+            <i class="bi bi-list toggle-sidebar-btn"></i>
+            <a href="/admin-dashboard" class="logo d-flex align-items-center mx-3">
+                <span>Hospital</span>
+            </a>
+        </div>
+        <!-- End Logo -->
+
+        <nav class="header-nav ms-auto">
+            <ul class="d-flex align-items-center">
+
+
+                <li class="nav-item dropdown pe-3">
+
+                    <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+                        <!-- <img src="" alt="" class="rounded-circle"> -->
+                        <!-- <i class="bi bi-person-circle"></i> -->
+                        <span class="d-none d-md-block dropdown-toggle ps-2"></span>
+                    </a>
+                    <!-- End Profile Iamge Icon -->
+
+                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+                        <li class="dropdown-header">
+                            <h6>
+                                
+                            </h6>
+                            <span>Web Developer</span>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item d-flex align-items-center" href="/admin-profile">
+                                <i class="bi bi-person"></i>
+                                <span>My Profile</span>
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+
+
+
+                        <li>
+                            <a class="dropdown-item d-flex align-items-center" href="/admin-logout">
+                                <i class="bi bi-box-arrow-right"></i>
+                                <span>Log-Out</span>
+                            </a>
+                        </li>
+
+                    </ul>
+                    <!-- End Profile Dropdown Items -->
+                </li>
+                <!-- End Profile Nav -->
+
+            </ul>
+        </nav>
+        <!-- End Icons Navigation -->
+
+    </header>
+    <!-- End Header -->
+
+    <!-- ======= Sidebar ======= -->
+    <aside id="sidebar" class="sidebar">
+
+        <ul class="sidebar-nav" id="sidebar-nav">
+
+            <!-- Dashboard Nav -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/admin-dashboard">
+                    <i class="bi bi-grid"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <!-- End Dashboard Nav -->
+
+            <!-- Users Nav -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#users-nav" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-person"></i><span>Users</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="users-nav" class="sidebar-nav nav-content collapse " data-bs-Physician="#sidebar-nav">
+                    <!-- Add Users -->
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" data-bs-target="#add-nav" data-bs-toggle="collapse" href="#">
+                            <i class="bi bi-square"></i><span>Add Users</span>
+                        </a>
+                        <ul id="add-nav" class="nav-content collapse" data-bs-Physician="#users-nav">
+                            <li>
+                                <a href="/physician-register">
+                                    <i class="bi bi-circle"></i><span>Physician</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/pa-register">
+                                    <i class="bi bi-circle"></i><span>PA</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/frontdesk-register">
+                                    <i class="bi bi-circle"></i><span>Front Desk</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/nurse-register">
+                                    <i class="bi bi-circle"></i><span>Nurse</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- Delete Users -->
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" data-bs-target="#delete-nav" data-bs-toggle="collapse" href="#">
+                            <i class="bi bi-square"></i><span>Delete Users</span>
+                        </a>
+                        <ul id="delete-nav" class="nav-content collapse" data-bs-Physician="#users-nav">
+                            <li>
+                                <a href="/physician-unregister">
+                                    <i class="bi bi-circle"></i><span>Physician</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/pa-unregister">
+                                    <i class="bi bi-circle"></i><span>PA</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/frontdesk-unregister">
+                                    <i class="bi bi-circle"></i><span>Front Desk</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/nurse-unregister">
+                                    <i class="bi bi-circle"></i><span>Nurse</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <!-- End Users Nav -->
+
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/admin-login">
+                    <i class="bi bi-box-arrow-left"></i>
+                    <span>Logout</span>
+                </a>
+            </li>
+            <!-- End Logout Page Nav -->
+        </ul>
+
+    </aside>
+    <!-- End Sidebar-->
+
+    <!-- ======= Main ======= -->
+    <main id="main" class="main">
+
+        <div class="pagetitle">
+            
+                <h1>Admin Dashboard</h1>
+                <nav>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/admin-dashboard">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="/frontdesk-register">Add Nurse</a></li>
+                    </ol>
+                </nav>
+        </div>
+        <!-- End Page Title -->
+
+        <div class="container">
+
+            <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-6 col-md-10 d-flex flex-column align-items-center justify-content-center">
+
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <div class="pt-4 pb-2">
+                                        <h5 class="card-title text-center pb-0 fs-4">Create a Nurse User</h5>
+                                    </div>
+
+                                    <form class="row g-3 mb-3 needs-validation" method="post" action="/nurse-register" novalidate>
+
+                                        <!--Full Name-->
+                                        <div class="row pt-3">
+                                            <label for="first_name" class="col-6 form-label">First Name</label>
+                                            <label for="last_name" class="col-6 form-label lab-padd">Last Name</label>
+                                            <input placeholder="First Name" type="text" class="col-5 inp-padd form-control" id="first_name" name="first_name" required autocomplete="off">
+                                            <input placeholder="Last Name" type="text" class="col-5 inp-padd form-control" id="last_name" name="last_name" required autocomplete="off">
+                                        </div>
+        
+                                        <!--User Email-->
+                                        <div class="col-12">
+                                            <label for="email_address" class="form-label">Email</label>
+                                            <input type="email" name="email_address" placeholder="Enter Email" class="form-control" id="email_address" required autocomplete="off">
+                                            <div class="invalid-feedback">Please enter a valid Email!</div>
+                                        </div>
+        
+                                        <!--User Number-->
+                                        <div class="col-12">
+                                            <label for="phone_number" class="form-label">Phone Number</label>
+                                            <input type="tel" name="phone_number" placeholder="Enter Phone Number" class="form-control" id="phone_number" required autocomplete="off">
+                                            <div class="invalid-feedback">Please enter a valid Phone Number!</div>
+                                        </div>
+        
+                                        <!--User Password-->
+                                        <div class="col-12">
+                                            <label for="password" class="form-label">Password</label>
+                                            <input type="password" name="password" placeholder="Enter Password" class="form-control" id="password" required autocomplete="off">
+                                            <div class="invalid-feedback">Please enter a valid Password!</div>
+                                        </div>
+        
+                                        <!--User Address-->
+                                        <div class="col-12">
+                                            <label for="teacherAddress" class="form-label">Your Address</label><br>
+                                            <label for="address_line1" class="form-label">Address Line 1</label>
+                                            <input type="text" placeholder="Enter Address" class="form-control" id="address_line1" name="address_line1" required autocomplete="off">
+                                            <label for="address_line2" class="form-label pt-3">Address Line 2</label>
+                                            <input type="text" placeholder="Enter Address" class="form-control" id="address_line2" name="address_line2" autocomplete="off">
+                                            <div class="row pt-3">
+                                                <label for="city" class="col-6 form-label">City</label>
+                                                <label for="state" class="col-6 form-label lab-padd">State</label>
+                                                <input placeholder="City" type="text" class="col-5 inp-padd form-control" id="city" name="city" required autocomplete="off">
+                                                <input placeholder="State" type="text" class="col-5 inp-padd form-control" id="state" name="state" required autocomplete="off">
+                                                <label for="zipcode" class="col-6 pt-3 form-label">Zip Code</label>
+                                                <input placeholder="000000" type="number" class="col-3 inp-padd form-control" id="zipcode" name="zipcode" required autocomplete="off">
+                                            </div>
+                                            <div class="invalid-feedback">Please, enter a proper  address!</div>
+                                        </div>
+        
+                                        <div class="col-12">
+                                            <button class="btn btn-primary w-100" type="submit">Create Account</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <!-- Main -->
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="/js/main.js"></script>
+
+
+</body>
+
+</html>
