@@ -1,10 +1,10 @@
 const jwt = require("jsonwebtoken");
 const pool = require("../db/database")
 
-const patientAuth = async ( req,res,next) => {
+const frontdeskAuth = async ( req,res,next) => {
 
     try{
-        const token = req.cookies['patient_token'];
+        const token = req.cookies['frontdesk_token'];
         const decode = jwt.verify(token,'thisismysecret');
         const user = await pool.query("SELECT * FROM users WHERE user_id = $1",[decode._id]);
         // const user = await Admin.findOne({_id:decode._id});
@@ -22,4 +22,4 @@ const patientAuth = async ( req,res,next) => {
 
 }
 
-module.exports = patientAuth;
+module.exports = frontdeskAuth;

@@ -10,5 +10,9 @@ CREATE TABLE users(
     city VARCHAR(255),
     state VARCHAR(255),
     zipcode VARCHAR(6),
-    role VARCHAR(255)
+    role VARCHAR(255),
+    token VARCHAR(255)
 );
+
+INSERT INTO users(first_name,last_name,email_address,phone_number,password,address_line1,address_line2,city,state,zipcode,role,token) 
+VALUES ('Abdullah','Shaikh','abd@a.com','7208283497','123456789','qqqq','qqqqq','Mumbai','Maha','400102','Admin','');
