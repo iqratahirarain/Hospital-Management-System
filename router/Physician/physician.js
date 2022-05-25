@@ -3,6 +3,8 @@ const router = new express.Router();
 const pool = require("../../db/database");
 const jwt = require("jsonwebtoken");
 const physicianAuth = require("../../middleware/physicianAuth");
+const {forgetPassword} = require("../../emails/emails");
+
 
 router.get("/physician-login", async (req, res) => {
   res.render("Physician/physicianLogin");
@@ -41,6 +43,28 @@ router.get("/physician-dashboard", physicianAuth, async (req, res) => {
     role: role,
   });
 });
+
+//Forgot Password
+router.get("/physician-forgot-password",async(req,res)=>{
+  res.render("Physician/forgotPassword");
+})
+
+router.post("/physician-forgot-password",async(req,res)=>{
+  const {email_address} = req.body;
+  const user = await pool.query("SELECT * FROM users WHERE email_address = $1",[email_address]);
+  forgetPassword(email_address,user.rows[0].user_id,user.rows[0].role);
+  res.redirect("/physician-forgot-password");
+})
+
+router.get("/physician-reset-password/:user_id",async(req,res)=>{
+  res.render("Physician/resetPassword",{user_id:req.params.user_id});
+})
+
+router.post("/physician-reset-password/:user_id",async(req,res)=>{
+  const user_id = req.params.user_id;
+  const updatedUser = await pool.query("UPDATE users SET password = $1 WHERE user_id = $2",[req.body.password,user_id]);
+  res.redirect("/physician-login");
+})
 
 //Logout
 router.get("/physician-logout", physicianAuth, async (req, res) => {

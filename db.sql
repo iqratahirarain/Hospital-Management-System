@@ -15,4 +15,4 @@ CREATE TABLE users(
 );
 
 INSERT INTO users(first_name,last_name,email_address,phone_number,password,address_line1,address_line2,city,state,zipcode,role,token) 
-VALUES ('Abdullah','Shaikh','abd@a.com','7208283497','123456789','qqqq','qqqqq','Mumbai','Maha','400102','Admin','');
+VALUES ('Abdullah','Shaikh','abdullahshhaikh10@gmail.com','7208283497','123456789','qqqq','qqqqq','Mumbai','Maha','400102','Admin','');
