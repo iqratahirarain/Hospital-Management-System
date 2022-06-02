@@ -44,6 +44,7 @@ router.get("/physician-dashboard", physicianAuth, async (req, res) => {
   });
 });
 
+
 //Forgot Password
 router.get("/physician-forgot-password",async(req,res)=>{
   res.render("Physician/forgotPassword");

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Patient Dashboard</title>
+    <title>Nurse Dashboard</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -24,6 +24,9 @@
 
     <!-- Template Main CSS File -->
     <link href="/css/style.css" rel="stylesheet" type="text/css">
+
+    <!--Edit link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 
@@ -34,7 +37,7 @@
 
         <div class="d-flex align-items-center justify-content-between">
             <i class="bi bi-list toggle-sidebar-btn"></i>
-            <a href="/patient-dashboard" class="logo d-flex align-items-center mx-3">
+            <a href="/nurse-dashboard" class="logo d-flex align-items-center mx-3">
                 <span>Hospital</span>
             </a>
         </div>
@@ -66,7 +69,7 @@
                         </li>
 
                         <li>
-                            <a class="dropdown-item d-flex align-items-center" href="/patient-profile">
+                            <a class="dropdown-item d-flex align-items-center" href="/nurse-profile">
                                 <i class="bi bi-person"></i>
                                 <span>My Profile</span>
                             </a>
@@ -78,7 +81,7 @@
 
 
                         <li>
-                            <a class="dropdown-item d-flex align-items-center" href="/patient-logout">
+                            <a class="dropdown-item d-flex align-items-center" href="/nurse-logout">
                                 <i class="bi bi-box-arrow-right"></i>
                                 <span>Log-Out</span>
                             </a>
@@ -103,22 +106,22 @@
 
             <!-- Dashboard Nav -->
             <li class="nav-item">
-                <a class="nav-link active" href="/patient-dashboard">
+                <a class="nav-link active" href="/nurse-dashboard">
                     <i class="bi bi-grid"></i>
                     <span>Dashboard</span>
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link active" href="/patient-dashboard-book-an-appointment">
-                    <i class="bi bi-grid"></i>
-                    <span>Book an Appointment</span>
                 </a>
             </li>
             <!-- End Dashboard Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="/patient-logout">
+                <a class="nav-link active" href="/nurse-dashboard-patient-record">
+                    <i class="bi bi-grid"></i>
+                    <span>Patient Record</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/nurse-logout">
                     <i class="bi bi-box-arrow-left"></i>
                     <span>Logout</span>
                 </a>
@@ -133,13 +136,52 @@
     <main id="main" class="main">
 
         <div class="pagetitle">
-                
-                <h1>Patient Dashboard</h1>
+                <h1>Nurse Dashboard</h1>
                 <nav>
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="/patient-dashboard">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="/nurse-dashboard">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="/nurse-dashboard-user-list">Patient Record</a></li>
                     </ol>
                 </nav>
+        </div>
+        <div>
+            <!--displaying patient record-->
+            <div class="container">
+                <h2>Patient Record</h2>
+                <p>This is a patient record table:</p>            
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>Userid</th>
+                      <th>Firstname</th>
+                      <th>Lastname</th>
+                      <th>Email</th>
+                      <th>Phonenumber</th>
+                      <th>Addressline1</th>
+                      <th>Addressline2</th>
+                      <th>City</th>
+                      <th>State</th>
+                      <th>Zipcode</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                     <% user_list.rows.forEach((user) => { %>
+                        <tr>
+                           <td><%=user.user_id %></td>
+                           <td><%=user.first_name %></td>
+                           <td><%=user.last_name %></td>
+                           <td><%=user.email_address %></td>
+                           <td><%=user.phone_number %></td>
+                           <td><%=user.address_line1 %></td>
+                           <td><%=user.address_line2 %></td>
+                           <td><%=user.city %></td>
+                           <td><%=user.state %></td>
+                           <td><%=user.zipcode %></td>
+                        </tr>
+                     <% }); %>
+                  </tbody>
+                </table>
+              </div>
         </div>
         <!-- End Page Title -->
 

@@ -34,6 +34,21 @@ router.get("/nurse-dashboard",nurseAuth,async(req,res)=>{
   res.render("Nurse/nurseDashboard",{full_name:full_name,role:role});
   })
 
+  router.get("/nurse-dashboard-patient-record",nurseAuth,async(req,res)=>{
+    const full_name = req.user.first_name + " " + req.user.last_name;
+    const role = req.user.role;
+    const patient_record = await pool.query("SELECT * FROM diagnosis join users on (diagnosis.user_id = users.user_id)");
+    res.render("Nurse/nurseDashboard-patient-record",{full_name:full_name,role:role,patient_record:patient_record});
+    })
+
+    router.get("/nurse-dashboard-user-list",nurseAuth,async(req,res)=>{
+      const full_name = req.user.first_name + " " + req.user.last_name;
+      const role = req.user.role;
+      const user_list = await pool.query("SELECT * FROM users where role='Patient'");
+      console.log(user_list);
+      res.render("Nurse/nurseDashboard-user-list",{full_name:full_name,role:role,user_list:user_list});
+      })
+
 //Forgot Password
 router.get("/nurse-forgot-password",async(req,res)=>{
   res.render("Nurse/forgotPassword");

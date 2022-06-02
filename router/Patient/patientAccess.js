@@ -55,6 +55,20 @@ router.get("/patient-dashboard",patientAuth,async(req,res)=>{
   res.render("Patient/patientDashboard",{full_name:full_name,role:role});
 })
 
+//Book an appointment
+router.get("/patient-dashboard-book-an-appointment",patientAuth,async(req,res)=>{
+  const full_name = req.user.first_name + " " + req.user.last_name;
+  const role = req.user.role;
+  res.render("Patient/patientDashboard-book-an-appointment",{full_name:full_name,role:role});
+})
+
+router.post("/patient-dashboard-book-an-appointment",async(req,res)=>{
+  const {email_address} = req.body;
+  const user = await pool.query("SELECT * FROM users WHERE email_address = $1",[email_address]);
+  bookanappointment(email_address,user.rows[0].user_id,user.rows[0].role);
+  res.redirect("/patient-dashboard-book-an-appointment");
+})
+
 //Forgot Password
 router.get("/patient-forgot-password",async(req,res)=>{
   res.render("Patient/forgotPassword");
