@@ -52,22 +52,35 @@ router.post("/patient-login", async (req, res) => {
 router.get("/patient-dashboard",patientAuth,async(req,res)=>{
   const full_name = req.user.first_name + " " + req.user.last_name;
   const role = req.user.role;
-  res.render("Patient/patientDashboard",{full_name:full_name,role:role});
+  const user_id = req.user.user_id
+  res.render("Patient/patientDashboard",{full_name:full_name,role:role,user_id:user_id,user: req.user});
 })
 
 //Book an appointment
 router.get("/patient-dashboard-book-an-appointment",patientAuth,async(req,res)=>{
   const full_name = req.user.first_name + " " + req.user.last_name;
   const role = req.user.role;
-  res.render("Patient/patientDashboard-book-an-appointment",{full_name:full_name,role:role});
+  const userid = req.user.user_id;
+  console.log("user id",userid);
+  res.render("Patient/patientDashboard-book-an-appointment",{full_name:full_name,role:role,user_id: userid});
 })
 
-router.post("/patient-dashboard-book-an-appointment",async(req,res)=>{
-  const {email_address} = req.body;
-  const user = await pool.query("SELECT * FROM users WHERE email_address = $1",[email_address]);
-  bookanappointment(email_address,user.rows[0].user_id,user.rows[0].role);
-  res.redirect("/patient-dashboard-book-an-appointment");
-})
+router.post("/patient-book-appointment/:user_id",async(req,res)=>{
+  try {
+    const role = "Patient";
+    const NULL = '';
+    const {first_name, last_name, phone_number, enter_email, enter_date, enter_time} = req.body;
+    console.log("before insert", req.body);
+    const newappointment = await pool.query("INSERT INTO bookappointment (first_name,last_name,phone_number,enter_email,enter_date,enter_time) VALUES ($1,$2,$3,$4,$5,$6) RETURNING *",[first_name,last_name,phone_number,enter_email,enter_date,enter_time]);
+    const user_id = req.params.user_id;
+    console.log("user ", user_id);
+    res.redirect("/patient-dashboard-book-an-appointment");
+  } catch (e) {
+      console.log(e)
+      res.send(e);
+  }
+});
+
 
 //Forgot Password
 router.get("/patient-forgot-password",async(req,res)=>{

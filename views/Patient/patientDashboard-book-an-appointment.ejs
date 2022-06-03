@@ -137,7 +137,7 @@
                 <nav>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="/patient-dashboard">Dashboard</a></li>
-                        <li class="breadcrumb-item"><a href="/patient-dashboard-book-an-appointment">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="/patient-dashboard-book-an-appointment">Book-an-appointment</a></li>
                     </ol>
                 </nav>
         </div>
@@ -150,25 +150,25 @@
                         <div class="col-12">
                             <h3 class="fw-normal text-secondary fs-4 text-uppercase mb-4">Appointment form</h3>
                         </div>
-                        <form action="">
+                        <form method="post" action="/patient-book-appointment/<%=user_id%>">
                             <div class="row g-3">
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" placeholder="First Name">
+                                    <input type="text" class="form-control" placeholder="First Name" id="first_name" name="first_name">
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" placeholder="Last Name">
+                                    <input type="text" class="form-control" placeholder="Last Name" id="last_name" name="last_name">
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="tel" class="form-control" placeholder="Phone Number">
+                                    <input type="tel" class="form-control" placeholder="Phone Number" id="phone_number" name="phone_number">
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="email" class="form-control" placeholder="Enter Email">
+                                    <input type="email" class="form-control" placeholder="Enter Email" id="enter_email" name="enter_email">
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="date" class="form-control" placeholder="Enter Date">
+                                    <input type="date" class="form-control" placeholder="Enter Date" id="enter_data" name="enter_date">
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="time" class="form-control" placeholder="Enter Email">
+                                    <input type="time" class="form-control" placeholder="Enter Time" id="enter_time" name="enter_time">
                                 </div>
                                 <div class="col-12">
                                     <select class="form-select">
@@ -183,7 +183,7 @@
                                 </div>
                                 <div class="col-12 mt-5">                        
                                     <button type="submit" class="btn btn-primary float-end">Book Appointment</button>
-                                    <button type="button" class="btn btn-outline-secondary float-end me-2">Cancel</button>
+                                    <button type="cancel" class="btn btn-outline-secondary float-end me-2">Cancel</button>
                                 </div>
                             </div>
                         </form>
